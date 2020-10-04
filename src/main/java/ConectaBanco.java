@@ -10,8 +10,7 @@ public class ConectaBanco {
     private static final String USERNAME = System.getenv("DATABASE_USER");
     private static final String PASSWORD = System.getenv("DATABASE_PASSWORD");
 
-    private static final String URL =
-            "jdbc:postgresql://"+HOST+":"+PORT+"/"+DATABASENAME+"?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+    private static final String URL = "jdbc:postgresql://"+HOST+":"+PORT+"/"+DATABASENAME+"?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
 
     public static Connection getConnection() throws SQLException {
         try {

@@ -12,12 +12,8 @@ import java.util.List;
 
 @WebServlet(name = "Hello", urlPatterns = "/hello")
 public class Hello extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.getWriter().println("deu certo");
 
         ServletContext servletContext = getServletContext();
@@ -27,11 +23,12 @@ public class Hello extends HttpServlet {
         for (Usuario u : usuarioList) {
             response.getWriter().println(u.toString());
         }
+
         Connection connection = null;
         try {
             connection = ConectaBanco.getConnection();
         } catch (SQLException ex) {
-            response.getWriter().append("Connection Failed! Check output console");
+            response.getWriter().append("Connection Failed! Check output console ");
         }
         if(connection!= null){
             response.getWriter().append("A conexão com o banco foi realizada!");
