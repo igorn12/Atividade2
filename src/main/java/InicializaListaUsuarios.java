@@ -23,15 +23,16 @@ public class InicializaListaUsuarios implements ServletContextListener{
         Usuario u4 = new Usuario(4, "Cecilia", "cecilia@gmail.com", "33333");
 
         List<Usuario> usuariosList = new ArrayList<>();
-
         usuariosList.add(u1);
         usuariosList.add(u2);
         usuariosList.add(u3);
         usuariosList.add(u4);
 
+        List<String> tokensList = new ArrayList<>();
+
         ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("usuarios", usuariosList);
-
+        servletContext.setAttribute("tokens", tokensList);
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
